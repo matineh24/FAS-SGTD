@@ -20,7 +20,7 @@ Main codes of [**CVPR2020 paper "Deep Spatial Gradient and Temporal Depth Learni
 
 ## Train
 
-You can use [PRNet](https://github.com/clks-wzz/PRNet-Depth-Generation) to generate the virtual depth maps.
+
 
 For single-frame stage:
 > cd fas_sgtd_single_frame && bash train.sh
@@ -30,9 +30,15 @@ For multi-frame stage:
 
 ## Test
 
-We provide an example for Protocol 1 of OULU-NPU. You can download the models at [BaiduDrive](https://pan.baidu.com/s/1sVdctfWDoUFsrXOjxr6wJw)(pwd: luik) or  [GoogleDrive](https://drive.google.com/drive/folders/1CW1sXkLZRUmoDjg8LpQJ8-93Baz2TB2B?usp=sharing) and put them into `fas_sgtd_multi_frame/model_save/`.
+You can use [PRNet](https://github.com/clks-wzz/PRNet-Depth-Generation) to generate the virtual depth maps.
+
+We provide an example for Protocol 1 of OULU-NPU. You can download the models at [BaiduDrive](https://pan.baidu.com/s/1sVdctfWDoUFsrXOjxr6wJw)(pwd: luik) or  [GoogleDrive](https://drive.google.com/drive/folders/1CW1sXkLZRUmoDjg8LpQJ8-93Baz2TB2B?usp=sharing) and put them into `fas_sgtd_multi_frame/model_save/`. Also get the data and modify it with PRNet project and put it into `fas_sgtd_multi_frame/data/` and add the name of the files in [FLAGS.py](https://github.com/matineh24/FAS-SGTD/blob/9dfefb133ef20b96f9b3141696824916ccbd09b7/fas_sgtd_multi_frame/FLAGS.py#L11) based on your dev and test files. Then you could run test.py. 
+
+If you want to use batch to run, remove [this line](https://github.com/matineh24/FAS-SGTD/blob/9dfefb133ef20b96f9b3141696824916ccbd09b7/fas_sgtd_multi_frame/generate_network.py#L15) and run:
 
 > cd fas_sgtd_multi_frame && bash test.sh
+
+
 
 
 ## License
