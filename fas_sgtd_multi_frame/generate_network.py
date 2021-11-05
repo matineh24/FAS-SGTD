@@ -12,7 +12,7 @@ BasicConvLSTMCell = BasicConvLSTMCell.ConvGRUCell
 #from my_convolution3D import convolution3d
 len_seq=flags.paras.len_seq
 num_classes = flags.paras.num_classes
-
+os.environ['CUDA_VISIBLE_DEVICES'] = "5"
 gpus_str = os.environ['CUDA_VISIBLE_DEVICES']
 print('CUDA_VISIBLE_DEVICES:', gpus_str)
 gpus_str_split = gpus_str.split(',')

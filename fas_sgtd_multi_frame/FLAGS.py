@@ -6,12 +6,12 @@ flags.path=edict()
 
 path_gen_save = './model_save/'
 
-flags.path.train_file=['/workspace/data/train_images',
-                      '/workspace/data/train_depth']
-flags.path.dev_file=['/workspace/data/dev_images',
-                    '/workspace/data/dev_depth']
-flags.path.test_file=['/workspace/data/test_images',
-                     '/workspace/data/test_images']
+flags.path.train_file=['./data/train_images',
+                      './data/train_depth']
+flags.path.dev_file=['./data/dev_images_msu_mfsd-resize',
+                    './data/dev_depth_msu_mfsd_resize']
+flags.path.test_file=['./data/test_images_self_created_resize',
+                    './data/test_depth_self_created_resize']
 
 flags.path.model= path_gen_save #v10.1.1 for normal conv3d; v10.1.2 for 1.4 conv3d
 
@@ -24,7 +24,7 @@ flags.paras.isWeightedLoss= False
 flags.paras.isRealAttackPair= False #(real, print1/print2/replay1/replay2) or (real, print1, print2, replay1, replay2)
 flags.paras.isAugment= False
 flags.paras.num_classes = 2
-flags.paras.interval_seq = 3  # interval stride between concesive frames
+flags.paras.interval_seq = 1  # interval stride between concesive frames
 flags.paras.len_seq = 5   # length of video sequence
 flags.paras.stride_seq = 10 # sample stride of each sample
 flags.paras.stride_seq_dev=64

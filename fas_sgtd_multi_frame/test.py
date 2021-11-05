@@ -14,7 +14,7 @@ from generate_network import generate_network as model_fn
 flags=FLAGS.flags
 our_checkpoint_path = None #os.path.join(flags.path.model, 'model.ckpt-697003')
 isOfficialEval = True
-isOnline = True
+isOnline = False
 if isOnline:
     interval_iteration = 500
     interval_time = 16

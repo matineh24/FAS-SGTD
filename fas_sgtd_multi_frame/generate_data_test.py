@@ -9,6 +9,7 @@ import os
 import datetime
 import random
 import scipy.io as sio
+import pandas as pd
 
 #print(flags.paras.padding_info)
 
@@ -26,10 +27,8 @@ num_classes = flags.paras.num_classes
 padding_info = flags.paras.padding_info
 
 def crop_face_from_scene(image,face_name_full, scale):
-    f=open(face_name_full,'r')
-    lines=f.readlines()
-    y1,x1,w,h=[float(ele) for ele in lines[:4]]
-    f.close()
+    lines = pd.read_csv(face_name_full).ax.values
+    y1,x1,w,h=[float(ele) for ele in lines]
     y2=y1+w
     x2=x1+h
 
@@ -47,7 +46,7 @@ def crop_face_from_scene(image,face_name_full, scale):
     y2=min(y2,float(w_img))
     x2=min(x2,float(h_img))
 
-    region=image.crop([y1,x1,y2,x2])
+    region=image.crop([x1,y1,x2,y2])
     return region
     lucky='lucky'
 
@@ -75,7 +74,7 @@ def generate_existFaceLists_perfile(name_pure,IMAGES):
 
     len_seq=flags.paras.len_seq
     stride_seq=1#flags.paras.stride_seq * 16
-    num_image= len(IMAGES) + 100
+    num_image= len(IMAGES) + 5
     path_image=IMAGES[0][:-len(os.path.split(IMAGES[0])[-1])]
 
     label_name=name_pure.split('_')[-2]
@@ -92,10 +91,10 @@ def generate_existFaceLists_perfile(name_pure,IMAGES):
             stride_seq *= 1
         if(label>=4 and label<=5): # down sampling for negative samples 
             stride_seq *= 1
-    if num_classes == 2:
-        label=1 if label==1 else 2
-    #label=1 if label==1 else 0
-    label = label - 1
+    # if num_classes == 2:
+    #     label=1 if label==1 else 2
+    label=1 if label==1 else 0
+    # label = label - 1
     # down sampling for negative samples  
     start_ind=1
     end_ind=start_ind+ (len_seq-1)*interval_seq
