@@ -20,9 +20,9 @@ Main codes of [**CVPR2020 paper "Deep Spatial Gradient and Temporal Depth Learni
 
 ## Test
 
-You can use [PRNet](https://github.com/matineh24/PRNet-Depth-Generation) to generate the virtual depth maps.
+To test this project, first follow the instructions in [PRNet](https://github.com/matineh24/PRNet-Depth-Generation) project to generate the proper data.
 
-We provide an example for Protocol 1 of OULU-NPU. You can download the models at [BaiduDrive](https://pan.baidu.com/s/1sVdctfWDoUFsrXOjxr6wJw)(pwd: luik) or  [GoogleDrive](https://drive.google.com/drive/folders/1CW1sXkLZRUmoDjg8LpQJ8-93Baz2TB2B?usp=sharing) and put them into `fas_sgtd_multi_frame/model_save/`. Also get the data and modify it with PRNet project and put it into `fas_sgtd_multi_frame/data/` and add the name of the files in [FLAGS.py](https://github.com/matineh24/FAS-SGTD/blob/9dfefb133ef20b96f9b3141696824916ccbd09b7/fas_sgtd_multi_frame/FLAGS.py#L11) based on your dev and test files. Then you could run test.py. 
+We provide an example for Protocol 1 of OULU-NPU. You can download the models at [BaiduDrive](https://pan.baidu.com/s/1sVdctfWDoUFsrXOjxr6wJw)(pwd: luik) or  [GoogleDrive](https://drive.google.com/drive/folders/1CW1sXkLZRUmoDjg8LpQJ8-93Baz2TB2B?usp=sharing) and put them into `fas_sgtd_multi_frame/model_save/`. Also get the data and modify it with PRNet project and put it into `fas_sgtd_multi_frame/data/` and add the name of the folders in [FLAGS.py](https://github.com/matineh24/FAS-SGTD/blob/9dfefb133ef20b96f9b3141696824916ccbd09b7/fas_sgtd_multi_frame/FLAGS.py#L11) based on your dev and test folders. Then you could run test.py file. 
 
 If you want to use batch to run, remove [this line](https://github.com/matineh24/FAS-SGTD/blob/9dfefb133ef20b96f9b3141696824916ccbd09b7/fas_sgtd_multi_frame/generate_network.py#L15) and run:
 
@@ -41,10 +41,9 @@ According to this [line](https://github.com/matineh24/FAS-SGTD/blob/cca9608b895e
 
 When you test on a new data a row would be added to this text file.
 
+## Extra
 
-
-
-
+[This file](https://github.com/matineh24/FAS-SGTD/blob/master/download_from_aws.ipynb) was used to download only dev and test files of protocol 1 of OULU-NPU dataset. This has been run on AWS and the path of S3 bucket is filtered due to privacy reasons. 
 
 
 
