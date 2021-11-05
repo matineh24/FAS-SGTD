@@ -18,25 +18,34 @@ Main codes of [**CVPR2020 paper "Deep Spatial Gradient and Temporal Depth Learni
 
 * easydict
 
-## Train
-
-
-
-For single-frame stage:
-> cd fas_sgtd_single_frame && bash train.sh
-
-For multi-frame stage:
-> cd fas_sgtd_multi_frame && bash train.sh
-
 ## Test
 
-You can use [PRNet](https://github.com/clks-wzz/PRNet-Depth-Generation) to generate the virtual depth maps.
+You can use [PRNet](https://github.com/matineh24/PRNet-Depth-Generation) to generate the virtual depth maps.
 
 We provide an example for Protocol 1 of OULU-NPU. You can download the models at [BaiduDrive](https://pan.baidu.com/s/1sVdctfWDoUFsrXOjxr6wJw)(pwd: luik) or  [GoogleDrive](https://drive.google.com/drive/folders/1CW1sXkLZRUmoDjg8LpQJ8-93Baz2TB2B?usp=sharing) and put them into `fas_sgtd_multi_frame/model_save/`. Also get the data and modify it with PRNet project and put it into `fas_sgtd_multi_frame/data/` and add the name of the files in [FLAGS.py](https://github.com/matineh24/FAS-SGTD/blob/9dfefb133ef20b96f9b3141696824916ccbd09b7/fas_sgtd_multi_frame/FLAGS.py#L11) based on your dev and test files. Then you could run test.py. 
 
 If you want to use batch to run, remove [this line](https://github.com/matineh24/FAS-SGTD/blob/9dfefb133ef20b96f9b3141696824916ccbd09b7/fas_sgtd_multi_frame/generate_network.py#L15) and run:
 
 > cd fas_sgtd_multi_frame && bash test.sh
+
+
+## Data
+
+You can access the self_created dataset [here](https://drive.google.com/file/d/1ktju-N4sNut-4pUCgaj-S9Th5D7TbCYB/view?usp=sharing). 
+
+## Evaluation
+
+Evaluation on the modified original data can be found [here](https://github.com/matineh24/FAS-SGTD/blob/cca9608b895e95a3f8b52bd9efaae253d138e695/fas_sgtd_multi_frame/scores/norm_fusion_att_0.40_0.80/Protocol_1/eval.txt#L1) and evaluation on the new data can be found [here](https://github.com/matineh24/FAS-SGTD/blob/cca9608b895e95a3f8b52bd9efaae253d138e695/fas_sgtd_multi_frame/scores/norm_fusion_att_0.40_0.80/Protocol_1/eval.txt#L2). 
+
+According to this [line](https://github.com/matineh24/FAS-SGTD/blob/cca9608b895e95a3f8b52bd9efaae253d138e695/fas_sgtd_multi_frame/util/performances.py#L43) APCER, BPCER, and ACER are columns 4,5,6 respectively.
+
+When you test on a new data a row would be added to this text file.
+
+
+
+
+
+
 
 
 
